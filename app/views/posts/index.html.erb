@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class ="col-12 mx-auto">
+      <% @posts.reverse.each do |post| %>
+
+        <div class="card card-body mt-5">
+          <%= link_to post_path(post) do %>
+            <%= attachment_image_tag post, :image, class: "post-image" %>
+          <% end %>
+          <p>投稿者:
+            <%= link_to user_path(post.user.id) do %>
+              <%= post.user.name %>
+            <% end %>
+          </p>
+          <p><strong>タイトル</strong><br><%= post.title %></p>
+          <p><strong>詳細</strong><br><%= post.body %></p>
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+</div>

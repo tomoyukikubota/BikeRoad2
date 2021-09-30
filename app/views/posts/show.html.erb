@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4 mt-5">
+      <%= attachment_image_tag @post, :image, format: 'jpeg', size: "300x300" %>
+    </div>
+
+    <div class="col-sm-3 mt-5">
+      <span style="font-family: cursive;">Name:</span>
+      <span>
+        <%= link_to user_path(@post.user.id) do %>
+          <%= @post.user.name %>
+        <% end %>
+      </span>
+      <hr>
+      
+      <span style="font-family: cursive;">Title:</span>
+      <span><%= @post.title %></span>
+      <hr>
+      
+      <span style="font-family: cursive;">Contents:</span>
+      <span class="overflow-wrap"><%= @post.body %></span>
+    </div>
+  
+  </div>
+</div>

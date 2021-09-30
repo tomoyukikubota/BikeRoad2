@@ -1,1 +1,19 @@
-<h1>マイページ</h1>
+<div class="container">
+    <div class ="row">
+        <div class="col-md-2">
+           <p><%= attachment_image_tag @user, :profile_image, fallback: "no-image.jpg",size: "150x150", class: "rounded-circle" %></p>
+            <% if @user.id == current_user.id %>
+               <p><%= link_to "編集", edit_user_path(@user), class: "btn btn-outline-dark btn-md ml-5" %></p>
+            <% end %>
+        </div>
+        
+        <div class="col-md-6 mt-3">
+            <span style="font-family: cursive;">Name: <%= @user.name %></span><br><hr>
+            <span style="font-family: cursive;">Profile: <%= @user.introduction %></span>
+        </div>
+    
+    </div>
+</div>
+
+
+    

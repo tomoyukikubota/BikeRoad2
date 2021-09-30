@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6 mx-auto mt-5">
+      <%= form_with model: @post, local:true do |f| %>
+      
+        <%= f.label :写真 %><br>
+        <%= f.file_field :image %><br>
+        <br>
+        
+        <%= f.label :タイトル %><br>
+        <%= f.text_field :title %><br>
+        <br>
+        
+        <%= f.label :詳細 %><br>
+        <%= f.text_area :body %><br>
+        <br>
+        
+        <%= f.submit '更新', class:"btn btn-outline-dark" %>
+        
+      <% end %>
+    </div>
+  </div>
+</div>
