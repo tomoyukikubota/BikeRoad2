@@ -5,6 +5,10 @@
     </div>
 
     <div class="col-sm-3 mt-5">
+      <span class="like-btn_<%= @post.id %>">
+        <%= render "likes/like-btn", post: @post %>
+      </span>
+      <hr>
       <span style="font-family: cursive;">Name:</span>
       <span>
         <%= link_to user_path(@post.user.id) do %>
