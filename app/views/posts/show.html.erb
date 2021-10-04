@@ -16,14 +16,26 @@
         <% end %>
       </span>
       <hr>
-      
+
       <span style="font-family: cursive;">Title:</span>
       <span><%= @post.title %></span>
       <hr>
-      
+
       <span style="font-family: cursive;">Contents:</span>
       <span class="overflow-wrap"><%= @post.body %></span>
     </div>
-  
+
+    <div class="col-3 mt-5">
+      <%= form_with(model:[@post, @post_comment], remote: true) do |f| %>
+          <%= f.text_area :comment, rows:"5", size: "45x5" %>
+          <%= f.submit "投稿", class: "btn btn-outline-dark btn-md mt-3" %>
+      <% end %>
+    </div>
+
   </div>
+
+  <div class="post_comments mt-5">
+    <%= render 'post_comments/comment', post: @post %>
+  </div>
+
 </div>
