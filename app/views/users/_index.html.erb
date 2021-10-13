@@ -8,7 +8,7 @@
               <%= attachment_image_tag user, :profile_image, fallback: "no-image.jpg", size: "100x100", class: "rounded-circle" %><br>
             <% end %>
             <span class="pl-2">Name: <%= user.name %></span><br>
-            <span><%= render 'users/info', user: user %></span>
+            <span  class="follow-btn_<%= user.id %>"><%= render 'users/info', user: user %></span>
           </span>
         </div>
       <% end %>
