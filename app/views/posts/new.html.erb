@@ -4,7 +4,7 @@
       <%= form_with model: @post, local:true do |f| %>
       
         <%= f.label :写真 %><br>
-        <%= f.file_field :image %><br>
+        <%= f.file_field :images, multiple: true %><br>
         <br>
         
         <%= f.label :タイトル %><br>

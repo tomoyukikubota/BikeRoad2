@@ -13,8 +13,24 @@
             <span style="font-family: cursive;">Name: <%= @user.name %></span><br><hr>
             <span style="font-family: cursive;">Profile: <%= @user.introduction %></span>
         </div>
-
+    </div>
+    
+    <div class="row">
+      <% @user.posts.reverse.each do |post| %>
+        <div class="col-lg-4 col-md-6 mt-5">
+          <div class="slider">
+            <% if post.images.attached? %>
+              <% post.images.each do |image| %>
+                <%= link_to post_path(post) do %>
+                  <%= image_tag image, size: "400x300" %>
+                <% end %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
     </div>
 </div>
+
 
 

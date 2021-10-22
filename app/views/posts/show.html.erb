@@ -1,13 +1,24 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-4 mt-5">
-      <%= attachment_image_tag @post, :image, format: 'jpeg', size: "300x300" %>
+      <div class="slider">
+        <% if @post.images.attached? %>
+          <% @post.images.each do |image| %>
+            <%= image_tag image, format: 'jpeg', size: "300x300" %>
+          <% end %>
+        <% end %>
+      </div>
     </div>
 
     <div class="col-sm-3 mt-5">
       <span class="like-btn_<%= @post.id %>">
         <%= render "likes/like-btn", post: @post %>
       </span>
+      <% if @post.user.id == current_user.id %>
+        <span><%= link_to "編集", edit_post_path(@post), class: "btn btn-outline-dark btn-md" %></span>
+        <span><%= link_to "削除", post_path(@post), method: :delete, data: { confirm: "本当に削除しますか?" }, class: "btn btn-outline-danger btn-md" %></span>
+      <% end %>
+      <br>
       <hr>
       <span style="font-family: cursive;">Name:</span>
       <span>
