@@ -45,6 +45,13 @@
                   <%= link_to "マイページ", user_path(current_user.id), class: "nav-link text-dark" %>
                 </li>
 
+                <% if unchecked_notifications.any? %>
+                  <i class="fa fa-circle" style="color: gold;"></i>
+                <% end %>
+                <li>
+                  <%= link_to "通知", notifications_path, class: 'nav-link text-dark' %>
+                </li>
+
                 <li>
                   <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link text-dark" %>
                 </li>

@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   get 'blogs/index' => 'blogs#index'
   resources :blogs
 
+  resources :notifications, only: [:index, :destroy_all]
+  delete '/notifications/destroy_all' => 'notifications#destroy_all'
+
+
   resources :posts do
     resource :likes, only: [:create, :destroy]
     resources :post_comments, only: [:create, :destroy]
