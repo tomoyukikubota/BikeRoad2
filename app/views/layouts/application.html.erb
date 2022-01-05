@@ -60,6 +60,13 @@
                   <%= link_to "", blogs_path, class: 'nav-link text-dark far fa-calendar-alt mt-1' %>
                 </li>
 
+                <li class="mt-1 ml-5">
+                  <%= form_tag(users_path, :method => "get") do %>
+                    <%= text_field_tag :search, '', placeholder: 'ユーザー名' %>
+                    <%= submit_tag "検索" ,:name => nil ,class: "btn btn-outline-dark btn-sm"%>
+                  <% end %>
+                </li>
+
               <% else %>
 
                 <li>

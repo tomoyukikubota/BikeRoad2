@@ -45,5 +45,15 @@ class User < ApplicationRecord
     end
   end
 
+  # 部分一致するユーザーネームがあれば、その結果がページに表示
+  # https://www.for-engineer.life/entry/rails-search-form/
+  def self.search(search) #self.はUser.を意味する
+    if search
+      where(['name LIKE ?', "%#{search}%"]) #検索とuserのnameの部分一致を表示。
+    else
+      all #全て表示させる
+    end
+  end
+
 
 end
