@@ -12,6 +12,13 @@
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   </head>
 
+    <% if flash[:notice] %>
+      <div class="alert alert-primary" role="aleat"><strong><%= notice %></strong></div>
+    <% end %>
+    <% if flash[:alert] %>
+      <div class="alert alert-denger" role="aleat"><strong><%= alert %></strong></div>
+    <% end %>
+
   <body>
     <header>
       <nav class="navbar navbar-expand-lg navbar-light">
@@ -75,6 +82,10 @@
 
                 <li>
                   <%= link_to "ログイン", new_user_session_path, class: "nav-link text-dark" %>
+                </li>
+
+                <li>
+                  <%= link_to "ゲストログイン", users_guest_sign_in_path, class: 'nav-link text-dark', method: :post %>
                 </li>
 
               <% end %>

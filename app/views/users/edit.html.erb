@@ -2,21 +2,25 @@
   <div class="row">
     <div class="col-6 mx-auto mt-5">
       <%= form_with model: @user, local:true do |f| %>
-      
+
         <%= f.label :プロフィール画像 %><br>
         <%= f.attachment_field :profile_image %><br>
         <br>
-        
+
         <%= f.label :名前 %><br>
         <%= f.text_field :name %><br>
         <br>
-        
+
         <%= f.label :プロフィール %><br>
         <%= f.text_area :introduction %><br>
         <br>
-        
+
         <%= f.submit '更新', class:"btn btn-outline-dark" %>
-        
+
+        <% if user_signed_in? && @user.id == current_user.id %>
+          <%= link_to "退会", users_hide_path(current_user), method: :patch, "data-confirm" => "本当に退会しますか？", class: "btn btn-outline-danger" %>
+        <% end %>
+
       <% end %>
     </div>
   </div>
