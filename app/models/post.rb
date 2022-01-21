@@ -1,5 +1,7 @@
 class Post < ApplicationRecord
 
+  validates :images, presence: true
+
   belongs_to :user
   has_many :likes, dependent: :destroy
   has_many :post_comments, dependent: :destroy
@@ -9,7 +11,7 @@ class Post < ApplicationRecord
   def liked_by?(user)
     likes.where(user_id: user.id).exists?
   end
-  
+
   def create_notification_like!(current_user)
     # すでに「いいね」されているか検索(いいねを連続でした場合でも、1度しか相手に通知がいかないようにする)
     temp = Notification.where(["visiter_id = ? and visited_id = ? and post_id = ? and action = ? ", current_user.id, user_id, id, 'like'])
