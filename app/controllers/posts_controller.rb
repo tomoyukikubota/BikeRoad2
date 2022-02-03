@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
 
+  before_action :current_user_post, only: [:edit, :update]
+
   def index
     @posts = Post.all
   end
@@ -44,5 +46,12 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :body, images: [])
+  end
+
+  def current_user_post
+    post = Post.find(params[:id])
+    if post != current_user
+      redirect_to post_path(current_user)
+    end
   end
 end
