@@ -36,38 +36,38 @@
 
               <% if user_signed_in? %>
 
-                <li>
+                <li class="fadeIn">
                   <%= link_to "投稿一覧", posts_path, class: "nav-link text-dark" %>
                 </li>
 
-                <li>
+                <li class="fadeIn">
                   <%= link_to "ユーザー一覧", users_path, class: "nav-link text-dark" %>
                 </li>
 
-                <li>
+                <li class="fadeIn">
                   <%= link_to "新規投稿", new_post_path, class: "nav-link text-dark" %>
                 </li>
 
-                <li>
+                <li class="fadeIn">
                   <%= link_to "マイページ", user_path(current_user.id), class: "nav-link text-dark" %>
                 </li>
 
                 <% if unchecked_notifications.any? %>
                   <i class="fa fa-circle" style="color: gold;"></i>
                 <% end %>
-                <li>
+                <li class="fadeIn">
                   <%= link_to "通知", notifications_path, class: 'nav-link text-dark' %>
                 </li>
 
-                <li>
+                <li class="fadeIn">
                   <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link text-dark" %>
                 </li>
 
-                <li>
+                <li class="fadeIn">
                   <%= link_to "", blogs_path, class: 'nav-link text-dark far fa-calendar-alt mt-1' %>
                 </li>
 
-                <li class="mt-1 ml-5">
+                <li class="mt-1 ml-5 fadeIn">
                   <%= form_tag(users_path, :method => "get") do %>
                     <%= text_field_tag :search, '', placeholder: 'ユーザー名' %>
                     <%= submit_tag "検索" ,:name => nil ,class: "btn btn-outline-dark btn-sm"%>
@@ -76,15 +76,15 @@
 
               <% else %>
 
-                <li>
+                <li class="fadeIn">
                   <%= link_to "新規登録", new_user_registration_path, class: "nav-link text-dark" %>
                 </li>
 
-                <li>
+                <li class="fadeIn">
                   <%= link_to "ログイン", new_user_session_path, class: "nav-link text-dark" %>
                 </li>
 
-                <li>
+                <li class="fadeIn">
                   <%= link_to "ゲストログイン", users_guest_sign_in_path, class: 'nav-link text-dark', method: :post %>
                 </li>
 
